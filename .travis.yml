@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before intsall:
+  - docker build -t pipeline -f Dockerfile.dev .
+
+script:
+  - docker run pipeline npm run test -- --coverage
