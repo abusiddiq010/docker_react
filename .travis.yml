@@ -7,3 +7,16 @@ before intsall:
 
 script:
   - docker run pipeline npm run test -- --coverage
+
+deploy:
+  provider: elastic beanstalk
+  region: "ap-south-1"
+  app: "docker_react"
+  env: "Dockerreact-env"
+  bucker_name: "elasticbeanstalk-ap-south-1-033211137270"
+  bucker_path: "docker_react"
+
+  on:
+    branch: master
+  access_key_id: $AWS_Access key
+  secret_access_key: "SECRET_key"
